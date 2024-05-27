@@ -6,8 +6,8 @@ s.listen(1)
 connection, address = s.accept()
 data = connection.recv(1024)
 if data:
-  #connection.sendall(data)
-  MSG = data.decode().upper()
-  connection.sendall(str.encode(MSG))
+  MSG = float(data.decode())
+  MSG = MSG * 2
+  connection.sendall(str.encode(str(MSG)))
 connection.close()
 s.close()
